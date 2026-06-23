@@ -83,15 +83,15 @@ public class App {
                 case "4" -> cadastrarNovoAudio(teclado);
                 case "5" -> pesquisarPorTitulo(teclado);
                 case "6" -> exibirHistorico();
-                case "7" -> exibirRelatorioPodcasts(teclado);
+                case "7" -> exibirRelatorioGeral(teclado);
                 case "8" -> tocarDaPlaylist(teclado);
                 case "9" -> { Decoracoes.msgSairApp(); noMenuPrincipal = false; }
-                default -> Decoracoes.msgComandoInvalido();
+                default  -> Decoracoes.msgComandoInvalido();
             }
         }
     }
 
-    // --- MÉTODO POLIMÓRFICO DE FILTRAGEM (Requisito Nível 3) ---
+
     private static void filtrarETocar(Scanner teclado, Class<? extends AudioItem> classe) {
         List<AudioItem> filtrados = bancoAudio.stream()
                 .filter(classe::isInstance)
@@ -204,6 +204,27 @@ public class App {
                 .sorted((a, b) -> Integer.compare(b.getLikes(), a.getLikes()))
                 .forEach(Decoracoes::exibirLinhaRelatorioPodcast);
         Decoracoes.promptEnterContinuar();
+        teclado.nextLine();
+    }
+
+    private static void exibirRelatorioGeral(Scanner teclado) {
+        System.out.println("\n🎵 [ TOP MÚSICAS MAIS ESCUTADAS - RANKING GLOBAL ] 🕸");
+        System.out.println("─────────────────────────────────────────────────────");
+
+        bancoAudio.stream()
+                .filter(Musica.class::isInstance)
+                .map(Musica.class::cast)
+                .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
+                .limit(5)
+                .forEach(m -> System.out.printf(
+                        "  🎶 %-30s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        m.getTitulo() + " - " + m.getArtista(),
+                        m.getRepro(),
+                        m.getLikes()
+                ));
+
+        System.out.println("─────────────────────────────────────────────────────");
+        System.out.println("\nPressione Enter para voltar...");
         teclado.nextLine();
     }
 

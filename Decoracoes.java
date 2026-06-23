@@ -95,15 +95,16 @@ public class Decoracoes {
     public static void exibirMenuPrincipal() {
         System.out.println("""
         **************************************************
-        🕸️ MENU PRINCIPAL - SPIDEY MUSICS 🕸️
-        
+        🕸 MENU PRINCIPAL - SPIDEY MUSICS 🕸
         [ 1 ] 🎶 Tocar Músicas
-        [ 2 ] 🎙️ Tocar Podcasts
+        [ 2 ] 🎙 Tocar Podcasts
         [ 3 ] 📖 Tocar Audiobooks
         [ 4 ] 📝 Cadastrar Novo Item
-        [ 5 ] 📊 Relatório de Podcasts
-        [ 6 ] 🎵 Minha Playlist
-        [ 7 ] 🚪 Sair
+        [ 5 ] 🔍 Pesquisar por Título
+        [ 6 ] 🕐 Histórico
+        [ 7 ] 📊 Relatório Geral
+        [ 8 ] 🎵 Minha Playlist
+        [ 9 ] 🚪 Sair
         **************************************************
         Escolha uma opção: """);
     }
