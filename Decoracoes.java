@@ -95,15 +95,13 @@ public class Decoracoes {
         System.out.println("""
         **************************************************
         🕸 MENU PRINCIPAL - SPIDEY MUSICS 🕸
-        [ 1 ] 🎶 Tocar Músicas
-        [ 2 ] 🎙 Tocar Podcasts
-        [ 3 ] 📖 Tocar Audiobooks
-        [ 4 ] 📝 Cadastrar Novo Item
-        [ 5 ] 🔍 Pesquisar por Título
-        [ 6 ] 🕐 Histórico
-        [ 7 ] 📊 Relatório Geral
-        [ 8 ] 🎵 Minha Playlist
-        [ 9 ] 🚪 Sair
+        [ 1 ] 🎵 Tocar Áudio
+        [ 2 ] 📝 Cadastrar Novo Item
+        [ 3 ] 🔍 Pesquisar por Título
+        [ 4 ] 🕐 Histórico
+        [ 5 ] 📊 Relatório Geral
+        [ 6 ] 🎵 Minha Playlist
+        [ 7 ] 🚪 Sair
         **************************************************
         Escolha uma opção: """);
     }

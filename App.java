@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class App {
 
@@ -75,36 +74,25 @@ public class App {
             String opcaoMenu = teclado.nextLine();
 
             switch (opcaoMenu) {
-                case "0" -> Decoracoes.msgVoltandoMenu();
-                case "1" -> filtrarETocar(teclado, Musica.class);
-                case "2" -> filtrarETocar(teclado, Podcast.class);
-                case "3" -> filtrarETocar(teclado, AudioBook.class);
-                case "4" -> cadastrarNovoAudio(teclado);
-                case "5" -> pesquisarPorTitulo(teclado);
-                case "6" -> exibirHistorico();
-                case "7" -> Relatorio.exibir(bancoAudio, teclado);
-                case "8" -> tocarDaPlaylist(teclado);
-                case "9" -> { Decoracoes.msgSairApp(); noMenuPrincipal = false; }
+                case "1" -> tocarAudio(teclado);
+                case "2" -> cadastrarNovoAudio(teclado);
+                case "3" -> pesquisarPorTitulo(teclado);
+                case "4" -> exibirHistorico();
+                case "5" -> Relatorio.exibir(bancoAudio, teclado);
+                case "6" -> tocarDaPlaylist(teclado);
+                case "7" -> { Decoracoes.msgSairApp(); noMenuPrincipal = false; }
                 default  -> Decoracoes.msgComandoInvalido();
             }
         }
     }
 
-    private static void filtrarETocar(Scanner teclado, Class<? extends AudioItem> classe) {
-        List<AudioItem> filtrados = bancoAudio.stream()
-                .filter(classe::isInstance)
-                .collect(Collectors.toList());
-
-        if (filtrados.isEmpty()) {
-            System.out.println("Nenhum item deste tipo encontrado na teia!");
-            return;
-        }
-
-        Decoracoes.exibirListaDupla(filtrados, Decoracoes.LARGURA_CAIXA);
+    private static void tocarAudio(Scanner teclado) {
+        Decoracoes.exibirCabecalhoTeiaGeral();
+        Decoracoes.exibirListaDupla(bancoAudio, Decoracoes.LARGURA_CAIXA);
 
         int escolha = lerInteiro(teclado);
-        if (escolha > 0 && escolha <= filtrados.size()) {
-            AudioItem escolhido = filtrados.get(escolha - 1);
+        if (escolha > 0 && escolha <= bancoAudio.size()) {
+            AudioItem escolhido = bancoAudio.get(escolha - 1);
             escolhido.tocar();
             adicionarAoHistorico(escolhido);
         } else {
