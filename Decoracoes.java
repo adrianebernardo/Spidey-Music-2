@@ -10,7 +10,6 @@ public class Decoracoes {
     private static final String LINHA_MEDIA =
             "-------------------------------------------------------------------------------------------------------------------------------";
 
-    // ── Login ──────────────────────────────────────────────────────────────
 
     public static void exibirBannerLogin() {
         System.out.println("""

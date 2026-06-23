@@ -20,7 +20,6 @@ public class App {
 
         boolean logado = false;
 
-        // --- FLUXO DE LOGIN ---
         while (!logado) {
             Decoracoes.exibirBannerLogin();
             String opcaoLogar = teclado.nextLine();
@@ -69,7 +68,6 @@ public class App {
             }
         }
 
-        // --- MENU PRINCIPAL ---
         boolean noMenuPrincipal = true;
         while (noMenuPrincipal) {
             Decoracoes.exibirMenuPrincipal();
@@ -83,14 +81,13 @@ public class App {
                 case "4" -> cadastrarNovoAudio(teclado);
                 case "5" -> pesquisarPorTitulo(teclado);
                 case "6" -> exibirHistorico();
-                case "7" -> exibirRelatorioGeral(teclado);
+                case "7" -> Relatorio.exibir(bancoAudio, teclado);
                 case "8" -> tocarDaPlaylist(teclado);
                 case "9" -> { Decoracoes.msgSairApp(); noMenuPrincipal = false; }
                 default  -> Decoracoes.msgComandoInvalido();
             }
         }
     }
-
 
     private static void filtrarETocar(Scanner teclado, Class<? extends AudioItem> classe) {
         List<AudioItem> filtrados = bancoAudio.stream()
@@ -114,7 +111,6 @@ public class App {
         }
     }
 
-    // --- MÉTODOS DE SUPORTE (Mantidos conforme original) ---
 
     private static void cadastrarNovoAudio(Scanner teclado) {
         Decoracoes.exibirCabecalhoCadastro();
