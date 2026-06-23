@@ -63,6 +63,7 @@ public class App {
                     userLogado = new User(novoNome, novoEmail);
                     Decoracoes.msgCadastroConcluido();
                     break;
+
                 default:
                     Decoracoes.msgOpcaoLoginInvalida();
             }
@@ -111,7 +112,6 @@ public class App {
         }
     }
 
-
     private static void cadastrarNovoAudio(Scanner teclado) {
         Decoracoes.exibirCabecalhoCadastro();
         String tipoEscolhido = teclado.nextLine();
@@ -119,7 +119,7 @@ public class App {
             case "1" -> cadastrarMusica(teclado);
             case "2" -> cadastrarPodcast(teclado);
             case "3" -> cadastrarAudiobook(teclado);
-            default -> Decoracoes.msgTipoCadastroInvalido();
+            default  -> Decoracoes.msgTipoCadastroInvalido();
         }
     }
 
@@ -188,40 +188,6 @@ public class App {
             }
         }
         if (historicoVazio) Decoracoes.msgHistoricoVazio();
-    }
-
-    private static void exibirRelatorioPodcasts(Scanner teclado) {
-        Decoracoes.exibirCabecalhoRelatorioPodcasts();
-        bancoAudio.stream()
-                .filter(Podcast.class::isInstance)
-                .map(Podcast.class::cast)
-                .filter(pod -> pod.getDuracao() > 30.0)
-                .filter(pod -> pod.getRepro() > 50)
-                .sorted((a, b) -> Integer.compare(b.getLikes(), a.getLikes()))
-                .forEach(Decoracoes::exibirLinhaRelatorioPodcast);
-        Decoracoes.promptEnterContinuar();
-        teclado.nextLine();
-    }
-
-    private static void exibirRelatorioGeral(Scanner teclado) {
-        System.out.println("\n🎵 [ TOP MÚSICAS MAIS ESCUTADAS - RANKING GLOBAL ] 🕸");
-        System.out.println("─────────────────────────────────────────────────────");
-
-        bancoAudio.stream()
-                .filter(Musica.class::isInstance)
-                .map(Musica.class::cast)
-                .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
-                .limit(5)
-                .forEach(m -> System.out.printf(
-                        "  🎶 %-30s | 🔊 %,6d plays | ❤️ %,5d likes%n",
-                        m.getTitulo() + " - " + m.getArtista(),
-                        m.getRepro(),
-                        m.getLikes()
-                ));
-
-        System.out.println("─────────────────────────────────────────────────────");
-        System.out.println("\nPressione Enter para voltar...");
-        teclado.nextLine();
     }
 
     private static void tocarDaPlaylist(Scanner teclado) {
