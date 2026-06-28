@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Relatorio {
 
@@ -29,13 +28,12 @@ public class Relatorio {
         System.out.println("\n🎵 TOP MÚSICAS MAIS ESCUTADAS 🕸️");
         System.out.println("─────────────────────────────────────────────────────");
         bancoAudio.stream()
-                .filter(Musica.class::isInstance)
-                .map(Musica.class::cast)
+                .filter(a -> a.getTipo().equals("Musica"))
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(m -> System.out.printf(
                         "  🎶 %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
-                        m.getTitulo() + " - " + m.getArtista(),
+                        m.getRotuloExibicao(),
                         m.getRepro(),
                         m.getLikes()
                 ));
@@ -45,14 +43,12 @@ public class Relatorio {
         System.out.println("\n🎙️ TOP PODCASTS MAIS ESCUTADOS 🕸️");
         System.out.println("─────────────────────────────────────────────────────");
         bancoAudio.stream()
-                .filter(Podcast.class::isInstance)
-                .map(Podcast.class::cast)
+                .filter(a -> a.getTipo().equals("Podcast"))
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(p -> System.out.printf(
-                        "  🎙️ Ep.%-3d | %-25s | 🔊 %,6d plays | ❤️ %,5d likes%n",
-                        p.getNumeroEpisodio(),
-                        p.getTitulo() + " - " + p.getApresentador(),
+                        "  🎙️ %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        p.getRotuloExibicao(),
                         p.getRepro(),
                         p.getLikes()
                 ));
@@ -62,14 +58,12 @@ public class Relatorio {
         System.out.println("\n📚 TOP AUDIOBOOKS MAIS ESCUTADOS 🕸️");
         System.out.println("─────────────────────────────────────────────────────");
         bancoAudio.stream()
-                .filter(AudioBook.class::isInstance)
-                .map(AudioBook.class::cast)
+                .filter(a -> a.getTipo().equals("AudioBook"))
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(ab -> System.out.printf(
-                        "  📚 Cap.%-3d | %-25s | 🔊 %,6d plays | ❤️ %,5d likes%n",
-                        ab.getCapitulo(),
-                        ab.getTitulo() + " - " + ab.getAutor(),
+                        "  📚 %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        ab.getRotuloExibicao(),
                         ab.getRepro(),
                         ab.getLikes()
                 ));

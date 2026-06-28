@@ -29,6 +29,10 @@ public abstract class AudioItem {
         this.repro++;
     }
 
+    public String getTipo() {
+        return this.getClass().getSimpleName();
+    }
+
     public String getTitulo() { return titulo; }
     public double getDuracao() { return duracao; }
     public int getLikes() { return likes; }
