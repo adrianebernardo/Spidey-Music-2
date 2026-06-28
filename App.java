@@ -95,6 +95,23 @@ public class App {
             AudioItem escolhido = bancoAudio.get(escolha - 1);
             escolhido.tocar();
             adicionarAoHistorico(escolhido);
+
+            Decoracoes.exibirPromptLike();
+            int opcaoLike = lerInteiro(teclado);
+            if (opcaoLike == 1) {
+                escolhido.likar();
+                Decoracoes.msgLikeAgradecido();
+            } else {
+                Decoracoes.msgLikeRecusado();
+            }
+
+            Decoracoes.exibirPromptPlaylist();
+            int opcaoPlaylist = lerInteiro(teclado);
+            if (opcaoPlaylist == 1) {
+                playlistUsuario.adicionarItem(escolhido);
+                Decoracoes.msgAdicionadoPlaylist(playlistUsuario.getTitulo());
+            }
+
         } else {
             Decoracoes.msgPosicaoInvalida();
         }
