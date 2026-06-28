@@ -183,18 +183,6 @@ public class App {
         if (!encontrou) Decoracoes.msgAudioNaoEncontrado();
     }
 
-    private static void exibirHistorico() {
-        Decoracoes.exibirCabecalhoHistorico();
-        boolean historicoVazio = true;
-        for (int i = 0; i < 5; i++) {
-            if (historicoGeral[i] != null) {
-                historicoVazio = false;
-                Decoracoes.exibirItemHistorico(i + 1, historicoGeral[i].getRotuloExibicao());
-            }
-        }
-        if (historicoVazio) Decoracoes.msgHistoricoVazio();
-    }
-
     private static void tocarDaPlaylist(Scanner teclado) {
         Decoracoes.exibirCabecalhoPlaylist();
         Decoracoes.exibirInfoPlaylist(playlistUsuario.getTitulo());
