@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class App {
 
@@ -77,7 +78,7 @@ public class App {
                 case "1" -> tocarAudio(teclado);
                 case "2" -> cadastrarNovoAudio(teclado);
                 case "3" -> pesquisarPorTitulo(teclado);
-                case "4" -> exibirHistorico();
+                case "4" -> exibirHistorico(teclado);
                 case "5" -> Relatorio.exibir(bancoAudio, teclado);
                 case "6" -> tocarDaPlaylist(teclado);
                 case "7" -> { Decoracoes.msgSairApp(); noMenuPrincipal = false; }
@@ -87,12 +88,41 @@ public class App {
     }
 
     private static void tocarAudio(Scanner teclado) {
+        System.out.println("\n🕸️ [ TEIA DE ÁUDIOS ] - O que deseja ouvir?");
+        System.out.println("[ 1 ] 🎵 Músicas");
+        System.out.println("[ 2 ] 🎙️ Podcasts");
+        System.out.println("[ 3 ] 📚 Audiobooks");
+        System.out.println("[ 4 ] 🕸️ Tudo");
+        System.out.print("Escolha: ");
+
+        String filtro = teclado.nextLine();
+
+        List<AudioItem> listaFiltrada;
+        switch (filtro) {
+            case "1" -> listaFiltrada = bancoAudio.stream()
+                    .filter(a -> a instanceof Musica)
+                    .collect(Collectors.toList());
+            case "2" -> listaFiltrada = bancoAudio.stream()
+                    .filter(a -> a instanceof Podcast)
+                    .collect(Collectors.toList());
+            case "3" -> listaFiltrada = bancoAudio.stream()
+                    .filter(a -> a instanceof AudioBook)
+                    .collect(Collectors.toList());
+            case "4" -> listaFiltrada = bancoAudio;
+            default  -> { Decoracoes.msgComandoInvalido(); return; }
+        }
+
+        if (listaFiltrada.isEmpty()) {
+            System.out.println("⚠️ Nenhum áudio encontrado nessa categoria!");
+            return;
+        }
+
         Decoracoes.exibirCabecalhoTeiaGeral();
-        Decoracoes.exibirListaDupla(bancoAudio, Decoracoes.LARGURA_CAIXA);
+        Decoracoes.exibirListaDupla(listaFiltrada, Decoracoes.LARGURA_CAIXA);
 
         int escolha = lerInteiro(teclado);
-        if (escolha > 0 && escolha <= bancoAudio.size()) {
-            AudioItem escolhido = bancoAudio.get(escolha - 1);
+        if (escolha > 0 && escolha <= listaFiltrada.size()) {
+            AudioItem escolhido = listaFiltrada.get(escolha - 1);
             escolhido.tocar();
             adicionarAoHistorico(escolhido);
 
@@ -181,6 +211,29 @@ public class App {
             }
         }
         if (!encontrou) Decoracoes.msgAudioNaoEncontrado();
+    }
+
+    private static void exibirHistorico(Scanner teclado) {
+        Decoracoes.exibirCabecalhoHistorico();
+        boolean historicoVazio = true;
+        for (int i = 0; i < 5; i++) {
+            if (historicoGeral[i] != null) {
+                historicoVazio = false;
+                Decoracoes.exibirItemHistorico(i + 1, historicoGeral[i].getRotuloExibicao());
+            }
+        }
+        if (historicoVazio) { Decoracoes.msgHistoricoVazio(); return; }
+
+        System.out.println("\n[ 1-5 ] Tocar um áudio do histórico");
+        System.out.println("[ 0 ] Voltar ao menu");
+        System.out.print("Escolha: ");
+        int escolha = lerInteiro(teclado);
+
+        if (escolha >= 1 && escolha <= 5 && historicoGeral[escolha - 1] != null) {
+            AudioItem escolhido = historicoGeral[escolha - 1];
+            escolhido.tocar();
+            adicionarAoHistorico(escolhido);
+        }
     }
 
     private static void tocarDaPlaylist(Scanner teclado) {
