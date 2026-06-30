@@ -15,6 +15,8 @@ public abstract class AudioItem {
 
     public abstract String getRotuloExibicao();
 
+    public abstract String getCategoria();
+
     public void likar() {
         this.likes++;
         System.out.println("Você deu like em: " + this.titulo);
@@ -27,10 +29,6 @@ public abstract class AudioItem {
 
     protected void registrarReproducao() {
         this.repro++;
-    }
-
-    public String getTipo() {
-        return this.getClass().getSimpleName();
     }
 
     public String getTitulo() { return titulo; }

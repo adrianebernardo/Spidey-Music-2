@@ -54,17 +54,37 @@ public class Data {
         m12.inicializarDados(3650, 512);
         banco.add(m12);
 
-        Podcast p1 = new Podcast("Teia Tech", "Adriane & Matheus", 1, 45.30);
-        p1.inicializarDados(320, 89);
+        Podcast p1 = new Podcast("É possível programar em Python sem rebolar para os crias?", "Math Dúvidas", 4, 78.30);
+        p1.inicializarDados(50000, 78545);
         banco.add(p1);
 
-        Podcast p2 = new Podcast("AranhaCast", "Prof. Dotta", 12, 28.15);
+        Podcast p2 = new Podcast("De frente com Dottinha Sensei", "Mr. José Dotta", 9, 45.74);
         p2.inicializarDados(890, 210);
         banco.add(p2);
 
-        Podcast p3 = new Podcast("POO na Prática", "Turma TI29", 5, 35.00);
-        p3.inicializarDados(45, 12);
+        Podcast p3 = new Podcast("De canto a paldeia detonado", "Mestre Pokémon", 10, 74.00);
+        p3.inicializarDados(1515, 1);
         banco.add(p3);
+
+        Podcast p4 = new Podcast("Um dabate insano: Frontend vs Backend", "Adriane e Matheus", 67, 67.6);
+        p4.inicializarDados(54213248, 123156);
+        banco.add(p4);
+
+        AudioBook a1 = new AudioBook("O causador do coringamento: Java", "Todos estudantes de TI", 69, 45.00);
+        a1.inicializarDados(155555555, 15555555);
+        banco.add(a1);
+
+        AudioBook a2 = new AudioBook("Desvalorização do Frontend", "Adriane de Frente", 5, 80.00);
+        a2.inicializarDados(10, 3);
+        banco.add(a2);
+
+        AudioBook a3 = new AudioBook("Por que formigas são equivalentes a nazistas?", "M.Questionamentos", 6, 66.55);
+        a3.inicializarDados(1000000000, 3);
+        banco.add(a3);
+
+        AudioBook a4 = new AudioBook("O capitalismo falhou, falha e falhará", "Adriane Marxista", 1, 60.80);
+        a4.inicializarDados(3500, 45);
+        banco.add(a4);
 
         return banco;
     }

@@ -18,6 +18,11 @@ public class Musica extends AudioItem {
         return this.getTitulo() + " - " + this.artista;
     }
 
+    @Override
+    public String getCategoria() {
+        return "Musica";
+    }
+
     public String getArtista() { return artista; }
 
     public boolean isSpiderMan() {

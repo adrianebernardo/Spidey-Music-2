@@ -289,7 +289,7 @@ public class Decoracoes {
 
     private static void exibirEasterEggDottinha() {
         System.out.println("\nEm pleno século do mês do orgulho, você encontra esse easter egg");
-        System.out.println("\nfeito por um hétero(ás vezes) e uma mulher bi(que namora homem)...");
+        System.out.println("\nfeito por um hétero(às vezes) e uma mulher bi(que namora homem)...");
         System.out.println("Parabéns!!! Adoramos você, e odiamos Java!!! <3<3<3<3");
         pausa(2000);
         pausa(2000);
@@ -338,7 +338,7 @@ public class Decoracoes {
     private static void exibirEasterEggPinky() {
         System.out.println("\nQuerido usuárix (se for dotta, Olá senhor sensei)");
         System.out.println("você desbloqueou um dos nossos três easter eggs! xD");
-        System.out.println("Esse ester egg foi feito pelo  PRODIGIO DOS BACK-END turma TI29!!! ;3");
+        System.out.println("Esse easter egg foi feito pelo  PRODÍGIO DOS BACK-END turma TI29!!! ;3");
         System.out.println("\n🕸️  PRESA SECRETA ENCONTRADA NO PROVETE DE VENENO 🧪");
         exibirCaixaSimples(" 🕷️ Pavitr Prabhakar theme song - Matheus vulgo Pinky", LARGURA_CAIXA);
         System.out.println();
@@ -350,7 +350,7 @@ public class Decoracoes {
 
     private static void exibirEasterEggCerebro() {
         System.out.println("\nQuerido usuárix, você desbloqueou um dos nossos três easter eggs! xD");
-        System.out.println("Esse ester egg foi feito pela MAIORAL DAS FRONT-END da turma TI29!!! xDD");
+        System.out.println("Esse easter egg foi feito pela MAIORAL DAS FRONT-END da turma TI29!!! xDD");
         System.out.println("\n🕸️  PRESA SECRETA ENCONTRADA NO PROVETE DE VENENO 🧪");
         exibirCaixaSimples(" 🕷️ Miles Morales theme song - Adriane vulgo Cérebro", LARGURA_CAIXA);
         System.out.println();

@@ -100,13 +100,13 @@ public class App {
         List<AudioItem> listaFiltrada;
         switch (filtro) {
             case "1" -> listaFiltrada = bancoAudio.stream()
-                    .filter(a -> a instanceof Musica)
+                    .filter(a -> a.getCategoria().equals("Musica"))
                     .collect(Collectors.toList());
             case "2" -> listaFiltrada = bancoAudio.stream()
-                    .filter(a -> a instanceof Podcast)
+                    .filter(a -> a.getCategoria().equals("Podcast"))
                     .collect(Collectors.toList());
             case "3" -> listaFiltrada = bancoAudio.stream()
-                    .filter(a -> a instanceof AudioBook)
+                    .filter(a -> a.getCategoria().equals("AudioBook.java"))
                     .collect(Collectors.toList());
             case "4" -> listaFiltrada = bancoAudio;
             default  -> { Decoracoes.msgComandoInvalido(); return; }

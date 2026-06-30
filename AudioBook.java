@@ -21,6 +21,11 @@ public class AudioBook extends AudioItem {
         return "📚 Cap." + this.capitulo + " - " + this.getTitulo() + " (" + this.autor + ")";
     }
 
+    @Override
+    public String getCategoria() {
+        return "AudioBook";
+    }
+
     public String getAutor() { return autor; }
     public int getCapitulo() { return capitulo; }
 }

@@ -21,6 +21,11 @@ public class Podcast extends AudioItem {
         return "🎙️ Ep." + this.numeroEpisodio + " - " + this.getTitulo() + " (" + this.apresentador + ")";
     }
 
+    @Override
+    public String getCategoria() {
+        return "Podcast";
+    }
+
     public String getApresentador() { return apresentador; }
     public int getNumeroEpisodio() { return numeroEpisodio; }
 }
