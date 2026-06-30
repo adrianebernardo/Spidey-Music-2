@@ -38,6 +38,7 @@ public class Decoracoes {
 
     public static void promptUsuarioLogin() {
         System.out.print("Digite seu usuário: ");
+        pausa(1500);
     }
 
     public static void promptEmailLogin() {
@@ -45,11 +46,12 @@ public class Decoracoes {
     }
 
     public static void msgProcurandoTeia() {
-        System.out.println("Nossas aranhas estão procurando pela sua teia no emaranhado. . . .");
+        System.out.println("Nossas aranhas estão procurando pela sua teia no emaranhado...");
     }
 
     public static void msgUsuarioVerificado() {
         System.out.println("Usuário verificado!");
+        pausa(1000);
     }
 
     public static void msgFiosDeSeda() {
@@ -59,34 +61,40 @@ public class Decoracoes {
     public static void msgLoginFalhou() {
         System.out.println("Usuário e/ou e-mail não encontrado, se não tiver uma conta clique em cadastrar-se.");
         System.out.println("Nossas aranhas ficarão felizes em tecer uma conta para você");
+        pausa(1500);
     }
 
     public static void promptNomeCadastro() {
-        System.out.println("Digite o nome de usuario");
+        System.out.println("Digite o nome de usuário: ");
     }
 
     public static void msgNomeVazio() {
         System.out.println("⚠️ Nome de usuário não pode ser vazio!");
+        pausa(1500);
     }
 
     public static void promptEmailCadastro() {
-        System.out.println("Digite o seu email:");
+        System.out.println("Digite o seu e-mail: ");
     }
 
     public static void msgEmailInvalido() {
         System.out.println("⚠️ E-mail inválido! As aranhas exigem um @ no fio do e-mail.");
+        pausa(1500);
     }
 
     public static void msgCadastroTecendo() {
         System.out.println("Nossas aranhas estão tecendo seu cadastro na nossa teia de usuários");
+        pausa(1500);
     }
 
     public static void msgCadastroConcluido() {
         System.out.println("Agora você já pode usar a opção 1 para Logar.");
+        pausa(1500);
     }
 
     public static void msgOpcaoLoginInvalida() {
         System.out.println("Opção inválida! Escolha 1 para Logar ou 2 para Cadastrar.");
+        pausa(1500);
     }
 
     // ── Menu principal ─────────────────────────────────────────────────────
@@ -119,7 +127,10 @@ public class Decoracoes {
         pausa(1500);
         System.out.println("Fique sabendo você que elas guardam rancor... Muito rancor 🔪🩸");
         pausa(1500);
+        System.out.println("E nós.... Muita saudade! ❤");
+        pausa(1500);
         System.out.println("🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸🕷️🔪🩸");
+        System.out.println("🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤🕷️🔪❤");
     }
 
     // ── Teia geral ─────────────────────────────────────────────────────────
@@ -284,12 +295,46 @@ public class Decoracoes {
             exibirEasterEggCerebro();
             return true;
         }
+        if (tituloBuscado.equalsIgnoreCase("obrigado")) {
+            exibirEasterEggObrigado();
+            return true;
+        }
         return false;
+    }
+
+    private static void exibirEasterEggObrigado() {
+        System.out.println("         /`.    /`.");
+        System.out.println("        f    \\ ,f    \\");
+        System.out.println("                     \\     Você tornou o Java divertido, professor! - A.");
+        System.out.println("        i.  _\\';.,X j     ");
+        System.out.println("         `:_\\ (  \\ \\',-.   Você foi o melhor sensei, Dottinha. - M.");
+        System.out.println("           .'\"`\\ a\\eY' )   ");
+        System.out.println("              `._\"\\`-' `-/           _,.");
+        System.out.println("                 /-`._.-';\\.        ,-;'  |");
+        System.out.println("               .'/    \"'   | `\\.-'\"\"-/ /     j");
+        System.out.println("             ,/ /        i,-\"       (  ,/  /");
+        System.out.println("          .- .f        .'            \"/  /");
+        System.out.println("         / ,,/ffj\\      /          .-\"`.'-.'");
+        System.out.println("        / /_\\`--//)     \\ ,--._ .-'_,-'; /");
+        System.out.println("       f   \"-\"-._;'     `._ _.,-i; /_; /");
+        System.out.println("       `.,'   |; \\       \\`\\`\\_,/-'  \\'");
+        System.out.println("       .'     l \\ `.       /\"\\ _ \\`  j");
+        System.out.println("       f      : `-'       `._;.\"/`-'");
+        System.out.println("       |      `.               ,7   \\");
+        System.out.println("       l      j             .'/ - \\`.");
+        System.out.println("      .j.  .   <           (.'    .\\ \\f`. |\\,'");
+        System.out.println("    ,' `.  \\ / \\           `|      \\,'||-:j");
+        System.out.println("  .' .'\\   Y.  \\___......__\\ ._   /`.||");
+        System.out.println("__.._,-\" .-\"\"\"\")  /' ,' _          \\ |  /\"-.`j\"\"``---.._");
+        System.out.println("  .'.'.-'\"      / .(\"-'-'\"\":\\         ._)|_(__. \"'");
+        System.out.println(" ;.'          /-'---\"\".--\"'         /,_,^-._ .)");
+        System.out.println(" `:.__.,itz `---._.;'");
+        pausa(4000);
     }
 
     private static void exibirEasterEggDottinha() {
         System.out.println("\nEm pleno século do mês do orgulho, você encontra esse easter egg");
-        System.out.println("\nfeito por um hétero(às vezes) e uma mulher bi(que namora homem)...");
+        System.out.println("\nFeito por um hétero(às vezes) e uma mulher bi(que namora homem)...");
         System.out.println("Parabéns!!! Adoramos você, e odiamos Java!!! <3<3<3<3");
         pausa(2000);
         pausa(2000);
@@ -378,23 +423,22 @@ public class Decoracoes {
 
     public static void exibirCabecalhoRelatorioPodcasts() {
         System.out.println("\n📊 [ RELATÓRIO DE PODCASTS POPULARES ] 🕸️");
-        System.out.println("(Episódios com duração > 30 min e reproduções > 50, ordenados por likes)\n");
     }
 
     public static void exibirLinhaRelatorioPodcast(Podcast pod) {
-        System.out.println(String.format(
-                " 🎙️ Ep.%-3d | %-25s | Apresentador: %-18s | ⏳ %4.2f min | 🔊 Repro: %,5d | ❤️ Likes: %,5d",
+        System.out.printf(
+                "🎙️ Ep.%d | %s | Apresentador: %s | ⏳ %.2f min | 🔊 Repro: %,d | ❤️ Likes: %,d%n",
                 pod.getNumeroEpisodio(),
                 pod.getTitulo(),
                 pod.getApresentador(),
                 pod.getDuracao(),
                 pod.getRepro(),
                 pod.getLikes()
-        ));
+        );
     }
 
     public static void promptEnterContinuar() {
-        System.out.println("\nPressione Enter para voltar ao menu principal...");
+        System.out.println("\nPressione [0] para voltar ao menu principal.");
     }
 
     // ── Playlist ───────────────────────────────────────────────────────────
