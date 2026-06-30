@@ -18,7 +18,7 @@ public class AudioBook extends AudioItem {
 
     @Override
     public String getRotuloExibicao() {
-        return "📚 Cap." + this.capitulo + " - " + this.getTitulo() + " (" + this.autor + ")";
+        return "Cap." + this.capitulo + " - " + this.getTitulo() + " (" + this.autor + ")";
     }
 
     @Override

@@ -9,7 +9,7 @@ public class Relatorio {
         System.out.println("[ 1 ] 🎵 Músicas mais escutadas");
         System.out.println("[ 2 ] 🎙️ Podcasts mais escutados");
         System.out.println("[ 3 ] 📚 Audiobooks mais escutados");
-        System.out.println("[ 4 ] 🔥 Podcasts populares (duração > 30min e repro > 50, por likes)");
+        System.out.println("[ 4 ] 🔥 Podcasts mais escutados");
         System.out.print("Escolha: ");
 
         String opcao = teclado.nextLine();
@@ -22,7 +22,7 @@ public class Relatorio {
             default  -> System.out.println("⚠️ Opção inválida!");
         }
 
-        System.out.println("\nPressione Enter para voltar...");
+        System.out.println("\nPressione [0] para voltar.");
         teclado.nextLine();
     }
 
@@ -34,7 +34,7 @@ public class Relatorio {
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(m -> System.out.printf(
-                        "  🎶 %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        "🎶 %s | 🔊 %,d plays | ❤️ %,d likes%n",
                         m.getRotuloExibicao(),
                         m.getRepro(),
                         m.getLikes()
@@ -49,7 +49,7 @@ public class Relatorio {
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(p -> System.out.printf(
-                        "  🎙️ %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        "🎶 %s | 🔊 %,d plays | ❤️ %,d likes%n",
                         p.getRotuloExibicao(),
                         p.getRepro(),
                         p.getLikes()
@@ -64,7 +64,7 @@ public class Relatorio {
                 .sorted((a, b) -> Integer.compare(b.getRepro(), a.getRepro()))
                 .limit(5)
                 .forEach(ab -> System.out.printf(
-                        "  📚 %-35s | 🔊 %,6d plays | ❤️ %,5d likes%n",
+                        "🎶 %s | 🔊 %,d plays | ❤️ %,d likes%n",
                         ab.getRotuloExibicao(),
                         ab.getRepro(),
                         ab.getLikes()

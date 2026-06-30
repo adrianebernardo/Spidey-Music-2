@@ -33,10 +33,11 @@ public class App {
 
                     if (usuario.equals(userLogado.getNome()) && email.equals(userLogado.getEmail())) {
                         Decoracoes.msgProcurandoTeia();
-                        Decoracoes.pausa(2500);
+                        Decoracoes.pausa(2000);
                         Decoracoes.msgUsuarioVerificado();
+                        Decoracoes.pausa(1200);
                         Decoracoes.msgFiosDeSeda();
-                        Decoracoes.pausa(2500);
+                        Decoracoes.pausa(1800);
                         logado = true;
                     } else {
                         Decoracoes.msgLoginFalhou();
@@ -106,7 +107,7 @@ public class App {
                     .filter(a -> a.getCategoria().equals("Podcast"))
                     .collect(Collectors.toList());
             case "3" -> listaFiltrada = bancoAudio.stream()
-                    .filter(a -> a.getCategoria().equals("AudioBook.java"))
+                    .filter(a -> a.getCategoria().equals("AudioBook"))
                     .collect(Collectors.toList());
             case "4" -> listaFiltrada = bancoAudio;
             default  -> { Decoracoes.msgComandoInvalido(); return; }
@@ -224,7 +225,7 @@ public class App {
         }
         if (historicoVazio) { Decoracoes.msgHistoricoVazio(); return; }
 
-        System.out.println("\n[ 1-5 ] Tocar um áudio do histórico");
+        System.out.println("\nEscolha um número de 1 a 5 para selecionar o áudio desejado.");
         System.out.println("[ 0 ] Voltar ao menu");
         System.out.print("Escolha: ");
         int escolha = lerInteiro(teclado);

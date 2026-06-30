@@ -64,3 +64,4 @@ Executar: `java App`
 - **Cenário 1** — Pesquisar por "cerebro"
 - **Cenário 2** — Pesquisar por "pinky"
 - **Cenário 3** — Pesquisar por "dottinha"
+- **Cenário 4** — Pesquisar por "obrigado"
